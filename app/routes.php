@@ -11,12 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
-
-Route::controller('subscribers', 'SubscribersController');
+Route::controller('/', 'SubscribersController');
 
 //This code will trigger the push request
 Route::get('queue/process',function()
