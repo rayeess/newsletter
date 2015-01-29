@@ -1,1 +1,1 @@
-<?php   Class Subscribers Extends Eloquent{     protected $table = 'subscribers';     protected $fillable = array('email');   }
+<?php   Class Subscriber Extends Eloquent {     protected $table = 'subscribers';     protected $fillable = array('email');   }

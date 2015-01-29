@@ -25,6 +25,12 @@
   {{Form::close()}}
   {{-- Form Ends Here --}}
 
+  {{ $subscribers = Subscriber::all(); }}
+  @foreach($subscribers as $subscriber)
+    <p>{{$subscriber->email}}</p>
+  @endforeach
+
+
   {{-- This div will show the ajax response --}}
   <div class="content"></div>
 
