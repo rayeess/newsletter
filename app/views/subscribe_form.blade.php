@@ -18,18 +18,12 @@
 </head>
 <body>
   {{-- Form Starts Here --}}
-  {{Form::open(array('url'=> URL::to('subscribers/submit'),'method' => 'post'))}}
+  {{Form::open(array('url'=> URL::to('/'),'method' => 'post'))}}
     <p>Simple Newsletter Subscription</p>
     {{Form::text('email',null,array('placeholder'=>'Type your E-mail address here'))}}
     {{Form::submit('Submit!')}}
   {{Form::close()}}
   {{-- Form Ends Here --}}
-
-  {{ $subscribers = Subscriber::all(); }}
-  @foreach($subscribers as $subscriber)
-    <p>{{$subscriber->email}}</p>
-  @endforeach
-
 
   {{-- This div will show the ajax response --}}
   <div class="content"></div>
@@ -49,7 +43,7 @@
       //back from server
     $('input[type="submit"]').click(function(e){
       e.preventDefault();
-      $.post('/subscribers/submit', {
+      $.post('/', {
         email: $('input[name="email"]').val()
       }, function($data){
         if($data=='1') {

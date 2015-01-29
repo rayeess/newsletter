@@ -11,7 +11,9 @@
 |
 */
 
-Route::controller('subscribers', 'SubscribersController');
+Route::get('/', 'SubscribersController@getIndex');
+
+Route::post('/', 'SubscribersController@postSubmit');
 
 //This code will trigger the push request
 Route::get('queue/process',function()

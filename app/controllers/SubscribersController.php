@@ -21,7 +21,7 @@ class SubscribersController extends BaseController {
 	       	if($validation->fails()) {
 	       		return $validation->errors()->first();
 	       	} else {
-	       		$create = Subscribers::create(array(
+	       		$create = Subscriber::create(array(
 	       			'email' => Input::get('email')
 	       			));
 	         	//If successful, we will be returning the '1' so the form
