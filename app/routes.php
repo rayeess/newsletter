@@ -20,31 +20,6 @@ Route::get('queue/process',function()
 	return 'Queue Processed Successfully!!';
 });
 
-Route::get('queue/test',function()
-{
-    Mail::send('emails.test', array(), function($message)
-            {
-                $message->to('p_rayees@hotmail.co.uk', 'Rayees')->subject('Testing Iron');
-            });
-
-    return 'Mail sent';
-});
-
-Route::get('queue/processtest',function()
-{
-    Queue::push(function($job) 
-    {
-            Mail::send('emails.test', array(), function($message)
-            {
-                $message->to('p_rayees@hotmail.co.uk', 'Rayees')->subject('Testing Iron process');
-            });
-
-            $job->delete();
-    });
-
-    return 'Queue Processed Successfully!';
-});
-
 //When the push driver sends us back, we will have to marshal and process the queue.
 Route::post('queue/push',function()
 {
@@ -64,8 +39,6 @@ Class SendEmail {
                 $message->to($each->email)->subject('Testing Iron Queue');
             });
         }
-        
-        //File::append('/var/www/newsletter/public/queue.txt', $data['string'].PHP_EOL);
 
         $job->delete();
     }
